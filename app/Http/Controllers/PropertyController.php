@@ -14,7 +14,7 @@ class PropertyController extends Controller
 {
     public function index(SearchPropertiesRequest $request)
     {
-        $query = Property::query()->orderBy('created_at', 'desc');
+        $query = Property::query()->with('images')->orderBy('created_at', 'desc');
         if($price = $request->validated('price')) {
             $query = $query->where('price', '<=', $price);
         }

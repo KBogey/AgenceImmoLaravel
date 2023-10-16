@@ -45,12 +45,6 @@ Route::get('/images/{path}', [\App\Http\Controllers\ImageController::class, 'sho
 //Partie Admin
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(callback: function() use ($idRegex) {
    Route::resource('property', AdminPropertyController::class)->except('show');
-   Route::delete('property/delete/{property}', [AdminPropertyController::class, 'forcedelete'])->name('property.delete')->where([
-       'property' => $idRegex
-   ]);
-   Route::post('property/restore/{property}', [AdminPropertyController::class, 'restore'])->name('property.restore')->where([
-       'property' => $idRegex
-   ]);
    Route::resource('option', \App\Http\Controllers\Admin\OptionController::class)->except(['show']);
    Route::delete('image/{image}', [ImageController::class, 'destroy'])->name('image.destroy')->where([
        'image' => $idRegex,

@@ -74,18 +74,4 @@ class PropertyController extends Controller
         $property->delete();
         return to_route('admin.property.index')->with('success', 'L\'annonce a été supprimée');
     }
-
-    public function forcedelete(Property $property)
-    {
-       $property->forceDelete();
-       return to_route('admin.property.index')->with('success', 'L\'annonce a été définitivement supprimée');
-    }
-
-    public function restore(Property $property)
-    {
-        $property->restore();
-        return to_route('admin.properties.index')->with('success', 'L\'annonce a été republiée');
-    }
-
-
 }

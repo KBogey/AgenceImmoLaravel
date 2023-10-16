@@ -9,7 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $properties = Property::with('images')->available()->recent()->limit(4)->get();
+        $properties = Property::recent()->with('images')->limit(4)->get();
+        dump($properties);
         return view('home', [
             'properties' => $properties
         ]);

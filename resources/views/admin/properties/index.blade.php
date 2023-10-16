@@ -15,7 +15,7 @@
     </div>
 
     <table class="table table-hover m-3">
-        <thread class="p-1">
+        <thead class="p-1">
             <tr>
                 <th>Titre</th>
                 <th>Surface</th>
@@ -23,7 +23,7 @@
                 <th>Ville</th>
                 <th class="text-end">Actions</th>
             </tr>
-        </thread>
+        </thead>
         <tbody class="table-group-divider">
 
         @foreach($properties as $property)

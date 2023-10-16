@@ -11,10 +11,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
+/**
+ * @mixin IdeHelperProperty
+ */
 class Property extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
     protected $fillable = [
         'title',
@@ -68,13 +70,13 @@ class Property extends Model
     }
 
     //filtrer les biens disponibles
-    public function scopeAvailable(Builder $builder): Builder
+    public function scopeAvailable(Builder $builder)
     {
         return $builder->where('sold', false);
     }
 
-    public function scopeRecent(Builder $builder): Builder
+    public function scopeRecent(Builder $builder)
     {
-        return $builder->where('created_at', 'desc');
+        return $builder->orderBy('created_at', 'desc');
     }
 }

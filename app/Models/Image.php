@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use League\Glide\Urls\UrlBuilderFactory;
 
+/**
+ * @mixin IdeHelperImage
+ */
 class Image extends Model
 {
     use HasFactory;

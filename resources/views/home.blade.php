@@ -1,5 +1,7 @@
 @extends('base')
 
+@section('title', 'Bienvenue ')
+
 @section('content')
     <div class="bg-light p-5 mb-5 text-center w-100">
         <div class="container">
